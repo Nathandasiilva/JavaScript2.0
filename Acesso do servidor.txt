@@ -1,0 +1,21 @@
+intruções: 
+
+2. npm install mongodb
+
+
+3. mongodb+srv://nathansilva:Y9awuoMoiaI21E11@cluster0.tersizn.mongodb.net/?retryWrites=true&w=majority
+
+
+
+--------------------------------------------------------------------------------------
+
+
+Senhas e Links:
+
+
+
+mongodb+srv://nathansilva:Y9awuoMoiaI21E11@cluster0.tersizn.mongodb.net/
+
+
+Usuario do servidor: nathansilva
+senha do usuario do servidor: Nathan2002?! / Y9awuoMoiaI21E11
