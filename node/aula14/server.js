@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.CONNECTIONSTRING, {useNewurlParser: true, useUnifiedTopology: true})
        .then(() => {
-        console.log('Conectei à base de dados');
        app.emit('Pronto');
        })
        .catch(e => console.log('Ocorreu um erro'));
