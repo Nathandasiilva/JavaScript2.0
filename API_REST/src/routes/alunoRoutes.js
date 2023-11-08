@@ -3,12 +3,12 @@ import alunoController from '../controllers/AlunoControllers';
 
 import loginRequired from '../middlewares/loginRequired';
 
-const routes = new Router();
+const router = new Router();
 
-routes.get('/', alunoController.index);
-routes.post('/', loginRequired, alunoController.store);
-routes.put('/id', loginRequired, alunoController.update);
-routes.get('/id', alunoController.show);
-routes.delete('/id', loginRequired, alunoController.delete);
+router.get('/', alunoController.index);
+router.post('/', loginRequired, alunoController.store);
+router.put('/:id', loginRequired, alunoController.update);
+router.get('/:id', alunoController.show);
+router.delete('/:id', loginRequired, alunoController.delete);
 
-export default routes;
+export default router;

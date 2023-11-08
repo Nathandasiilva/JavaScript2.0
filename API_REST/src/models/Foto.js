@@ -1,15 +1,15 @@
 import Sequelize, { Model } from 'sequelize';
+import appConfig from '../config/appConfig';
 
-export default class fotoController extends Model {
+export default class Foto extends Model {
   static init(sequelize) {
     super.init({
       originalname: {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {
-          len: {
-            notEnpty: [3, 255],
-            msg: 'Campo não pode fica vazio',
+          notEmpty: {
+            msg: 'Campo não pode ficar vazio.',
           },
         },
       },
@@ -17,12 +17,18 @@ export default class fotoController extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
         validate: {
-          len: {
-            notEnpty: [3, 255],
-            msg: 'Campo não pode fica vazio',
+          notEmpty: {
+            msg: 'Campo não pode ficar vazio.',
           },
         },
       },
+      url: {
+        type: Sequelize.VIRTUAL,
+        get() {
+          return `${appConfig.url}/images/${this.getDataValue('filename')}`;
+        },
+      },
+    }, {
       sequelize,
       tableName: 'fotos',
     });
@@ -30,6 +36,6 @@ export default class fotoController extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.aluno, { foreignKey: 'aluno_id' });
+    this.belongsTo(models.Aluno, { foreignKey: 'aluno_id' });
   }
 }
