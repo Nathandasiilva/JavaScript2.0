@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// From
+
 import'./Main.css';
 
 export default class Main extends Component {
@@ -20,7 +22,7 @@ render() {
       <div className='main'>
         <h1>Lista de Tarefas</h1>
 
-        <form action='#'>
+        <form action='#' className='form'>
           <input onChange={this.handleChange} type="text" />
           <button type='submit'>Enviar</button>
         </form>
