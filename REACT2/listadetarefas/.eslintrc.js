@@ -31,6 +31,8 @@ module.exports = {
   },
   rules: {
     "react/react-in-jsx-scope": "off",
+    "react/state-in-constructor": 0,
+    "react/forbid-porp-types": 0
   },
 };
 
