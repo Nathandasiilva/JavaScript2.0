@@ -3,15 +3,15 @@ import React from 'react';
 import { Container } from '../../styles/GlobalStyles';
 import { Title, Paragrafo } from './styled';
 
-export _default function Loguin;() {
+export default function Loguin() {
   return (
-   <Container>
-    <Title>
-      Login
-      <small>Oie</small>
-    </Title>
-    <Paragrafo>Lorem ipsum dolor sit amet.</Paragrafo>
-    <a href="">Oie</a>
-   </Container>
+    <Container>
+      <Title>
+        Login
+        <small>Oie</small>
+      </Title>
+      <Paragrafo>Lorem ipsum dolor sit amet.</Paragrafo>
+      <a href="">Oie</a>
+    </Container>
   );
 }

@@ -1,6 +1,6 @@
-impor slyled, { createGoblalStyle } from 'styled-components';
+import slyled, { createGoblalStyle } from 'styled-components';
 
-export _default createGlobalStyle`
+export default createGlobalStyle`
 * {
   margin: 0;
   padding: 0;
@@ -30,11 +30,11 @@ ul {
 }
 `;
 
-export const Container = styled.section `
-max-width: 360px;
-background: #fff;
-margin: 30px auto;
-padding: 30px;
-border-radius: 4px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-`
+export const Container = styled.section`
+  max-width: 360px;
+  background: #fff;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
