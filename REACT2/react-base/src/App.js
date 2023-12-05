@@ -1,5 +1,7 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux';
 
 //import './App.css';
 import history from './services/history';
@@ -9,11 +11,14 @@ import Routes from './routes';
 
 function App() {
   return (
-    <routes history={history}>
-      <Header />
-      <Login />
-      <GloblaStyle />
-    </routes>
+    <Provider store={store}>
+      <routes history={history}>
+        <Header />
+        <Login />
+        <GloblaStyle />
+        <ToastContainer autoClose={3000} className="toast-container" />
+      </routes>
+    </Provider>
   );
 }
 
