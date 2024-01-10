@@ -15,12 +15,12 @@ const reducer = (state = initialState, action) {
 
     case types.BOTAO_CLICADO_FAILURE: {
       console.log('Deu erro =(');
-      return newState;
+      return state;
     }
 
     case types.BOTAO_CLICADO_REQUEST: {
       console.log('Estou fazendo a requisição');
-      return newState;
+      return state;
     }
 
     default: {

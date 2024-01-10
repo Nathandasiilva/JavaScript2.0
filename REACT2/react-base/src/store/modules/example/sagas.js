@@ -5,10 +5,10 @@ import *as types from '../types';
 import { Default } from 'react-toastify/dist/utils';
 
 const requisicao = () =>
-const Promise((resolve, reject) => {
+const Promise((resolve) => {
   setTimeout(() => {
-    reject();
-  }, 2000);
+    resolve();
+  }, 600);
 });
 
 function* exampleRequest() {
