@@ -1,28 +1,29 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-export default function MyRoute({ component: component, isClosed, ...rest }) {
-  const isLoggedIn = false;
+export default function MyRoute({ component: Component, isClosed, ...rest }) {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   if (isClosed && !isLoggedIn) {
     return (
       <Redirect
-          to={{ pathname: '/Login', state: { prevPath: restlocation.pathname } }}
+        to={{ pathname: '/login', state: { prevPath: rest.location.pathname } }}
       />
     );
   }
+
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <Route {...rest} component={Component} />;
 }
 
-//eslint-disable-next-line react/jsx-props-no-spreading
-return <Route {...rest} component={component} />;
-
 MyRoute.defaultProps = {
-  isClosed = flasem,
+  isClosed: false,
 };
 
 MyRoute.propTypes = {
-  component: PropTypes.oneOfType([propTypes.element, propTypes.func])
-  .isRequired,
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+    .isRequired,
   isClosed: PropTypes.bool,
 };

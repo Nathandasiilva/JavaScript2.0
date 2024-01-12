@@ -1,38 +1,50 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { get } from 'lodash';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styled';
-import * as actions from '../../store/modules/auth/action';
+import * as actions from '../../store/modules/auth/actions';
 
-export default function Login() {
+import Loading from '../../components/Loading';
+
+export default function Login(props) {
   const dispatch = useDispatch();
+
+  const prevPath = get(props, 'location.state.prevPath', '/');
+  const history = get(props, 'history');
+
+  const isLoading = useSelector((state) => state.auth.isLoading);
 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let forErrors = false;
+    let formErrors = false;
 
     if (!isEmail(email)) {
       formErrors = true;
       toast.error('E-mail inválido.');
     }
 
-    if (!id && (password.length < 6 || password.length > 50)) {
+    if (password.length < 6 || password.length > 50) {
       formErrors = true;
-      toast.error('Senha deve ter entre 6 e 50 caracteres');
+      toast.error('Senha inválida');
     }
 
     if (formErrors) return;
+
+    dispatch(actions.loginRequest({ email, password, prevPath, history }));
   };
 
   return (
     <Container>
-      <h1>Loguin</h1>
+      <Loading isLoading={isLoading} />
+
+      <h1>Login</h1>
 
       <Form onSubmit={handleSubmit}>
         <input
